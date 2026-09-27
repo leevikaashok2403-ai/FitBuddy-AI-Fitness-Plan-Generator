@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>FitBuddy Result</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#0f172a;color:#e5e7eb}.wrap{max-width:1000px;margin:30px auto;padding:20px}
+.card{background:#111827;border:1px solid #334155;border-radius:18px;padding:25px;margin-bottom:20px}
+h1{color:#5eead4}h2{color:#99f6e4}pre{white-space:pre-wrap;line-height:1.6;background:#020617;padding:20px;border-radius:12px;overflow:auto}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.pill{background:#1e293b;padding:12px;border-radius:10px}
+textarea{width:100%;box-sizing:border-box;min-height:110px;background:#020617;color:#fff;border:1px solid #475569;border-radius:10px;padding:12px}
+button{padding:13px 20px;border:0;border-radius:10px;background:#14b8a6;font-weight:800;margin-top:10px}.nav a{color:#99f6e4;margin-right:18px}
+@media(max-width:700px){.info{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap">
+<div class="nav"><a href="/">← New Plan</a><a href="/view-all-users">Admin Dashboard</a></div>
+<div class="card"><h1>FitBuddy Personalized Plan</h1>
+<div class="info"><div class="pill"><b>Name</b><br>{{username}}</div><div class="pill"><b>User ID</b><br>{{user_id}}</div><div class="pill"><b>Age / Weight</b><br>{{age}} / {{weight}} kg</div><div class="pill"><b>Goal</b><br>{{goal}}</div><div class="pill"><b>Intensity</b><br>{{intensity}}</div></div></div>
+<div class="card"><h2>🏋️ 7-Day Workout Plan</h2><pre>{{workout_plan}}</pre></div>
+<div class="card"><h2>🥗 Nutrition / Recovery Tip</h2><p>{{nutrition_tip}}</p></div>
+<div class="card"><h2>🔄 Update Plan with Feedback</h2>
+<form method="post" action="/submit-feedback"><input type="hidden" name="user_id" value="{{user_id}}">
+<textarea name="feedback" required placeholder="Example: Add more cardio and include an extra rest day."></textarea><button>Update My Plan</button></form></div>
+{% if updated_plan %}<div class="card"><h2>✅ Updated Workout Plan</h2><pre>{{updated_plan}}</pre></div>{% endif %}
+</div></body></html>

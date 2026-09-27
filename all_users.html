@@ -1,0 +1,8 @@
+<!doctype html><html><head><meta charset="utf-8"><title>FitBuddy Admin</title>
+<style>body{font-family:Arial;background:#0f172a;color:#e5e7eb;margin:0}.wrap{max-width:1200px;margin:30px auto;padding:20px}a{color:#99f6e4}.card{background:#111827;padding:20px;border-radius:16px;margin:15px 0}table{width:100%;border-collapse:collapse}th,td{padding:12px;border-bottom:1px solid #334155;text-align:left;vertical-align:top}pre{white-space:pre-wrap;max-height:260px;overflow:auto}</style></head>
+<body><div class="wrap"><a href="/">← Home</a><h1>FitBuddy Admin Dashboard</h1>
+{% for u in users %}<div class="card"><h2>{{u.username}} ({{u.user_id}})</h2>
+<p>Age: {{u.age}} | Weight: {{u.weight}} kg | Goal: {{u.goal}} | Intensity: {{u.intensity}}</p>
+<table><tr><th>Original Plan</th><th>Updated Plan</th></tr><tr><td><pre>{{u.original_plan}}</pre></td><td><pre>{{u.updated_plan or "No feedback update yet."}}</pre></td></tr></table></div>
+{% else %}<p>No users yet. Generate a plan from the home page.</p>{% endfor %}
+</div></body></html>

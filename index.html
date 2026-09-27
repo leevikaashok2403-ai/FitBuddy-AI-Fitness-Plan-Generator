@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>FitBuddy</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#111827,#0f766e);color:#fff;min-height:100vh}
+.card{max-width:760px;margin:50px auto;padding:35px;background:rgba(17,24,39,.94);border-radius:22px;box-shadow:0 15px 50px #0006}
+h1{text-align:center;font-size:38px;margin-bottom:5px}.sub{text-align:center;color:#cbd5e1;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{font-weight:700;color:#d1fae5}input,select{width:100%;box-sizing:border-box;padding:13px;margin-top:7px;border-radius:10px;border:1px solid #475569;background:#1f2937;color:#fff}
+.full{grid-column:1/-1}button{width:100%;padding:15px;border:0;border-radius:12px;background:#14b8a6;color:#06201d;font-weight:800;font-size:16px;cursor:pointer;margin-top:8px}
+.links{text-align:center;margin-top:22px}.links a{color:#99f6e4;margin:0 10px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
+</style></head>
+<body><div class="card">
+<h1>FitBuddy 🏋️</h1><div class="sub">AI Fitness Plan Generator using Gemini 2.5</div>
+<form method="post" action="/generate-workout"><div class="grid">
+<div><label>Name</label><input name="username" required placeholder="Your name"></div>
+<div><label>User ID</label><input name="user_id" required placeholder="FB001"></div>
+<div><label>Age</label><input type="number" name="age" min="10" max="100" required placeholder="21"></div>
+<div><label>Weight (kg)</label><input name="weight" required placeholder="60"></div>
+<div><label>Fitness Goal</label><select name="goal"><option>weight loss</option><option>muscle gain</option><option>general wellness</option></select></div>
+<div><label>Workout Intensity</label><select name="intensity"><option>low</option><option selected>medium</option><option>high</option></select></div>
+<div class="full"><button>✨ Generate 7-Day Plan</button></div>
+</div></form>
+<div class="links"><a href="/view-all-users">Admin Dashboard</a><a href="/docs">API Docs</a></div>
+</div></body></html>
